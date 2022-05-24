@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "A5qEREf0xaY1jWeOT36P462U7FN5QcQjeRVuUJcPqjdVDVtvmKh/NSwSM1kXOPPzliqfxUaphRZO0feL5ExKjw==",
+  "success": true,
+  "projectFilePath": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs-master\\microc\\interpc.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ximo\\.nuget\\packages\\fsharp.core\\6.0.2\\fsharp.core.6.0.2.nupkg.sha512",
+    "C:\\Users\\ximo\\.nuget\\packages\\fslexyacc\\10.2.0\\fslexyacc.10.2.0.nupkg.sha512",
+    "C:\\Users\\ximo\\.nuget\\packages\\fslexyacc.runtime\\10.2.0\\fslexyacc.runtime.10.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}
