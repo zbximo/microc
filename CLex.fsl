@@ -22,7 +22,9 @@ let keyword s =
     | "false"   -> CSTBOOL 0
     | "if"      -> IF
     | "int"     -> failwith " 首字母应该小写"
+    | "float"   -> failwith " 首字母应该小写"
     | "Int"     -> INT
+    | "Float"   -> FLOAT
     | "null"    -> NULL
     | "print"   -> PRINT
     | "println" -> PRINTLN
