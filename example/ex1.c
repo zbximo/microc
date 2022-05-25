@@ -1,9 +1,9 @@
 // micro-C example 1
-int g ;
-int h[3] ;
-void main(int n) {
+Int g ;
+Int h[3] ;
+void main(Int n) {
   h[0] = 1;
-  // h[4] = 5;
+  h[4] = 5;
   // print h[3]; //数组首地址
   // print h[4]; //参数 n
   // h[5] = 5;

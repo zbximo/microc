@@ -300,7 +300,21 @@ and cExpr (e : expr) (varEnv : VarEnv) (funEnv : FunEnv) (C : instr list) : inst
            (IFNZRO labtrue 
              :: cExpr e2 varEnv funEnv (addJump jumpend C2))
     | Call(f, es) -> callfun f es varEnv funEnv C
-
+    | SelfOperation (msg,acc) ->
+        match msg with
+        | "I++" -> 
+          let ass = Assign (acc,Prim2("+",Access acc, CstI 1))
+          cExpr ass varEnv funEnv C
+        | "I--" ->
+          let ass = Assign (acc,Prim2("-",Access acc, CstI 1))
+          cExpr ass varEnv funEnv C
+        | "++I" ->
+          let C1 = cExpr (Access acc) varEnv funEnv C
+          CSTI 1 :: ADD :: C1
+        | "--I" ->
+          let C1 = cExpr (Access acc) varEnv funEnv C
+          CSTI 1 :: SUB :: C1
+        | _ -> failwith "SelfOperation unknow"
 (* Generate code to access variable, dereference pointer or index array: *)
 
 and cAccess access varEnv funEnv C = 

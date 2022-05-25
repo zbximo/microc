@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs-master\\microc\\interpc.fsproj": {}
+    "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs\\microc\\interpc.fsproj": {}
   },
   "projects": {
-    "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs-master\\microc\\interpc.fsproj": {
+    "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs\\microc\\interpc.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs-master\\microc\\interpc.fsproj",
+        "projectUniqueName": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs\\microc\\interpc.fsproj",
         "projectName": "interpc",
-        "projectPath": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs-master\\microc\\interpc.fsproj",
+        "projectPath": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs\\microc\\interpc.fsproj",
         "packagesPath": "C:\\Users\\ximo\\.nuget\\packages\\",
-        "outputPath": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs-master\\microc\\obj\\",
+        "outputPath": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs\\microc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ximo\\AppData\\Roaming\\NuGet\\NuGet.Config"

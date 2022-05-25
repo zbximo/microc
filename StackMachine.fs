@@ -18,6 +18,7 @@ type instr =
     | Label of label (* symbolic label; pseudo-instruc. *)
     | FLabel of int * label (* symbolic label; pseudo-instruc. *)
     | CSTI of int (* constant                        *)
+    | CSTF of float32
     | OFFSET of int (* constant     偏移地址  x86     *)
     | GVAR of int (* global var     全局变量  x86     *)
     | ADD (* addition                        *)
