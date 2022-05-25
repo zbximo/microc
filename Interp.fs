@@ -382,6 +382,21 @@ and eval e locEnv gloEnv store : int * store =
             let res = getSto store1 loc - 1
             (res, setSto store1 loc res)
         | _ -> failwith ("err for SelfOperation")
+    // += -= *= /= %=
+    | ComplexOperation(ope,acc,e) ->
+        // x += 2
+        let  (loc, store1) = access acc locEnv gloEnv store // 取x地址
+        let  (i1)  = getSto store1 loc // 取x值
+        let  (i2, store2) = eval e locEnv gloEnv store // 取2
+        let  res =
+            match ope with
+            | "+="  -> i1 + i2
+            | "-="  -> i1 - i2
+            | "*="  -> i1 * i2
+            | "/="  -> i1 / i2
+            | "%="  -> i1 % i2
+            | _ -> failwith ("unknown primitive " + ope)
+        (res, setSto store2 loc res)
 and access acc locEnv gloEnv store : int * store =
     match acc with
     | AccVar x -> (lookup (fst locEnv) x, store)
