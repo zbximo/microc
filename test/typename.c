@@ -1,6 +1,8 @@
 void main()
 {
-    Int a;
-    a = 1;
+    // int a;
+    // Int A;
+    Int __;
+    // a = 1;
     print a;
 }

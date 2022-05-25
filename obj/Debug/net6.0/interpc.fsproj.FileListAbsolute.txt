@@ -25,6 +25,9 @@ D:\work\HomeWork\2022.2-6\编译原理\大作业\plzoofs\microc\obj\Debug\net6.0
 D:\work\HomeWork\2022.2-6\编译原理\大作业\plzoofs\microc\obj\Debug\net6.0\interpc.dll
 D:\work\HomeWork\2022.2-6\编译原理\大作业\plzoofs\microc\obj\Debug\net6.0\interpc.pdb
 D:\work\HomeWork\2022.2-6\编译原理\大作业\plzoofs\microc\obj\Debug\net6.0\interpc.genruntimeconfig.cache
+D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\obj\Debug\net6.0\interpc.fsproj.AssemblyReference.cache
+D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\obj\Debug\net6.0\interpc.AssemblyInfoInputs.cache
+D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\obj\Debug\net6.0\interpc.AssemblyInfo.fs
 D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\bin\Debug\net6.0\interpc.exe
 D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\bin\Debug\net6.0\interpc.deps.json
 D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\bin\Debug\net6.0\interpc.runtimeconfig.json
@@ -45,9 +48,6 @@ D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\bin\Debug\net6.0\
 D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\bin\Debug\net6.0\tr\FSharp.Core.resources.dll
 D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\bin\Debug\net6.0\zh-Hans\FSharp.Core.resources.dll
 D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\bin\Debug\net6.0\zh-Hant\FSharp.Core.resources.dll
-D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\obj\Debug\net6.0\interpc.fsproj.AssemblyReference.cache
-D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\obj\Debug\net6.0\interpc.AssemblyInfoInputs.cache
-D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\obj\Debug\net6.0\interpc.AssemblyInfo.fs
 D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\obj\Debug\net6.0\interpc.fsproj.CopyComplete
 D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\obj\Debug\net6.0\interpc.dll
 D:\work\HomeWork\2022.2-6\编译原理\大作业\正式\microc\obj\Debug\net6.0\interpc.pdb
