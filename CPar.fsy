@@ -33,8 +33,8 @@ let nl = CstI 10 //  \n 的 ASCII 码
 %left EQ NE 
 %nonassoc GT LT GE LE
 %left PLUS MINUS
-%left TIMES DIV MOD 
 %left SELFPLUS SELFMINUS
+%left TIMES DIV MOD 
 %nonassoc NOT AMP 
 %nonassoc LBRACK          /* highest precedence  */
 

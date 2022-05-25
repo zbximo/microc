@@ -359,20 +359,24 @@ and eval e locEnv gloEnv store : int * store =
         else
             eval e2 locEnv gloEnv store1
     | Call (f, es) -> callfun f es locEnv gloEnv store
+    // ++I --I操作直接进行 + -1 再进行后续运算
+    // I++ I--操作先进行其他运算，再+ -1
     | SelfOperation (msg,acc) ->
-        match msg with
+        match msg with   
         | "I++" -> 
             let (loc, store1) = access acc locEnv gloEnv store
+            let pre = getSto store1 loc
             let res = getSto store1 loc + 1
-            (res, setSto store1 loc res)
+            (pre, setSto store1 loc res)
         | "++I" -> 
             let (loc, store1) = access acc locEnv gloEnv store
             let res = getSto store1 loc + 1
             (res, setSto store1 loc res)
         | "I--" ->
             let (loc, store1) = access acc locEnv gloEnv store
+            let pre = getSto store1 loc
             let res = getSto store1 loc - 1
-            (res, setSto store1 loc res)
+            (pre, setSto store1 loc res)
         | "--I" ->
             let (loc, store1) = access acc locEnv gloEnv store
             let res = getSto store1 loc - 1

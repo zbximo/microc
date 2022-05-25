@@ -15,5 +15,7 @@ void main()
     b = ++a;
     print a;   
     print b; 
+    b = 2*a--;
+    print a;
 
 }
