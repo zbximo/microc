@@ -230,11 +230,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs\\microc\\microc.fsproj",
-      "projectName": "microc",
-      "projectPath": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs\\microc\\microc.fsproj",
+      "projectUniqueName": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\正式\\microc\\interpc.fsproj",
+      "projectName": "interpc",
+      "projectPath": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\正式\\microc\\interpc.fsproj",
       "packagesPath": "C:\\Users\\ximo\\.nuget\\packages\\",
-      "outputPath": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\plzoofs\\microc\\obj\\",
+      "outputPath": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\正式\\microc\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ximo\\AppData\\Roaming\\NuGet\\NuGet.Config"

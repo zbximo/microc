@@ -25,8 +25,8 @@ let keyword s =
     | "if"      -> IF
     | "Int"     -> INT
     | "Float"   -> FLOAT
-    // | "int"     -> failwith "The first character needs to be capitalized....." 
-    // | "float"   -> failwith "The first character needs to be capitalized....." 
+    | "int"     -> failwith "首字母应该小写" 
+    | "float"   -> failwith "首字母应该小写" 
     | "null"    -> NULL
     | "print"   -> PRINT
     | "println" -> PRINTLN
@@ -226,7 +226,7 @@ and Token  lexbuf =
           )
   | 6 -> ( 
 # 71 "CLex.fsl"
-                                    SELFPLUS 
+                                     SELFPLUS 
 # 230 "CLex.fs"
           )
   | 7 -> ( 
@@ -236,7 +236,7 @@ and Token  lexbuf =
           )
   | 8 -> ( 
 # 73 "CLex.fsl"
-                                    SELFMINUS 
+                                     SELFMINUS 
 # 240 "CLex.fs"
           )
   | 9 -> ( 
