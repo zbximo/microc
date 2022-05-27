@@ -27,6 +27,9 @@ let keyword s =
     | "else"    -> ELSE
     | "false"   -> CSTBOOL 0
     | "if"      -> IF
+    | "for"     -> FOR
+    | "in"      -> IN
+    | "range"   -> RANGE
     | "Int"     -> INT
     | "Float"   -> FLOAT
     | "int"     -> failwith "首字母应该小写" 

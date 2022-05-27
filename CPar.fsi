@@ -44,6 +44,9 @@ type token =
   | VOID
   | WHILE
   | FLOAT
+  | FOR
+  | IN
+  | RANGE
   | CSTFLOAT of (float32)
   | CSTSTRING of (string)
   | NAME of (string)
@@ -93,6 +96,9 @@ type tokenId =
     | TOKEN_VOID
     | TOKEN_WHILE
     | TOKEN_FLOAT
+    | TOKEN_FOR
+    | TOKEN_IN
+    | TOKEN_RANGE
     | TOKEN_CSTFLOAT
     | TOKEN_CSTSTRING
     | TOKEN_NAME
