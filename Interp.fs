@@ -314,6 +314,19 @@ let rec exec stmt (locEnv: locEnv) (gloEnv: gloEnv) (store: store) : store =
                 loop store4
             else store2
         loop store2
+    | ForRangeTwo (e1, e2, e3, body) ->
+        let (start,store) = eval e2 locEnv gloEnv store
+        let (last,store) = eval e3 locEnv gloEnv store
+        let (loc, store1) = access e1 locEnv gloEnv store
+        let store2 = setSto store1 loc start
+        let rec loop store2 = 
+            let i = getSto store2 loc
+            if i<last then
+                let store3 = exec body locEnv gloEnv store2
+                let store4 = setSto store3 loc (i+1)
+                loop store4
+            else store2
+        loop store2
 
 and stmtordec stmtordec locEnv gloEnv store =
     match stmtordec with
@@ -370,6 +383,14 @@ and eval e locEnv gloEnv store : int * store =
             | _ -> failwith ("unknown primitive " + ope)
 
         (res, store2)
+    | Prim3(e1,e2,e3) ->
+        let (v1,store1) = eval e1 locEnv gloEnv store
+        let (v2,store2) = eval e2 locEnv gloEnv store1
+        let (v3,store3) = eval e3 locEnv gloEnv store2
+        if v1<> 0 then
+            (v2,store2)
+        else
+            (v3,store3)
     | Andalso (e1, e2) ->
         let (i1, store1) as res = eval e1 locEnv gloEnv store
 

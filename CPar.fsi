@@ -47,6 +47,8 @@ type token =
   | FOR
   | IN
   | RANGE
+  | QUEM
+  | COLON
   | CSTFLOAT of (float32)
   | CSTSTRING of (string)
   | NAME of (string)
@@ -99,6 +101,8 @@ type tokenId =
     | TOKEN_FOR
     | TOKEN_IN
     | TOKEN_RANGE
+    | TOKEN_QUEM
+    | TOKEN_COLON
     | TOKEN_CSTFLOAT
     | TOKEN_CSTSTRING
     | TOKEN_NAME

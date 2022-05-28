@@ -30,7 +30,8 @@ and expr =                           // 表达式，右值
   | Call of string * expr list       (* Function call f(...)        *)
   | SelfOperation of string * access     
   | ComplexOperation of string * access * expr
-  
+  | Prim3 of expr * expr * expr
+
 and access =                         //左值，存储的位置                                            
   | AccVar of string                 (* Variable access        x    *) 
   | AccDeref of expr                 (* Pointer dereferencing  *p   *)
@@ -46,6 +47,7 @@ and stmt =
 
   | For of expr * expr * expr * stmt  
   | ForRangeOne of access * expr * stmt
+  | ForRangeTwo of access * expr * expr * stmt
   // 语句块内部，可以是变量声明 或语句的列表                                                              
 
 and stmtordec =                                                    

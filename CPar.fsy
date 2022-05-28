@@ -18,7 +18,7 @@ let nl = CstI 10 //  \n 的 ASCII 码
 %token <string> CSTSTRING NAME
 %token <float32> CSTFLOAT
 
-%token CHAR ELSE IF INT NULL PRINT PRINTLN RETURN VOID WHILE FLOAT FOR IN RANGE
+%token CHAR ELSE IF INT NULL PRINT PRINTLN RETURN VOID WHILE FLOAT FOR IN RANGE QUEM COLON
 %token PLUS MINUS TIMES DIV MOD SELFPLUS SELFMINUS ADDOPE MINUSOPE TIMESOPE DIVOPE MODOPE
 %token EQ NE GT LT GE LE
 %token NOT SEQOR SEQAND
@@ -145,8 +145,10 @@ StmtM:  /* No unbalanced if-else */
   | WHILE LPAR Expr RPAR StmtM          { While($3, $5)        }
   //for (    i=0  ;    i<5  ;    i++   )   *
   | FOR LPAR Expr SEMI Expr SEMI Expr RPAR StmtM { For($3,$5,$7,$9) }
-  //for i     in   range  (   5    )      *
+  //for i      in range  (   5    )      *
   | FOR Access IN RANGE LPAR Expr RPAR StmtM { ForRangeOne($2,$6,$8) }
+  //for i      in range  (    3    ,     5    )    *
+  | FOR Access IN RANGE LPAR Expr COMMA Expr RPAR StmtM { ForRangeTwo($2,$6,$8,$10) }
 ;
 
 StmtU:
@@ -169,6 +171,9 @@ ExprNotAccess:
   | PRINT Expr                          { Prim1("printi", $2) }
   | PRINTLN                             { Prim1("printc", nl) }
   | Expr PLUS  Expr                     { Prim2("+",  $1, $3) }
+  //i<2  ?    1  :     2
+  | Expr QUEM Expr COLON Expr           { Prim3($1,$3,$5)     }
+
   | Access SELFPLUS                     { SelfOperation("I++", $1)}
   | Access SELFMINUS                    { SelfOperation("I--", $1)}
   | SELFPLUS   Access                   { SelfOperation("++I", $2)}
