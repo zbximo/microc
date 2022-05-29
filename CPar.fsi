@@ -49,6 +49,9 @@ type token =
   | RANGE
   | QUEM
   | COLON
+  | SWITCH
+  | CASE
+  | DEFAULT
   | CSTFLOAT of (float32)
   | CSTSTRING of (string)
   | NAME of (string)
@@ -103,6 +106,9 @@ type tokenId =
     | TOKEN_RANGE
     | TOKEN_QUEM
     | TOKEN_COLON
+    | TOKEN_SWITCH
+    | TOKEN_CASE
+    | TOKEN_DEFAULT
     | TOKEN_CSTFLOAT
     | TOKEN_CSTSTRING
     | TOKEN_NAME
@@ -125,6 +131,7 @@ type nonTerminalId =
     | NONTERM_Stmt
     | NONTERM_StmtM
     | NONTERM_StmtU
+    | NONTERM_StmtS
     | NONTERM_Expr
     | NONTERM_ExprNotAccess
     | NONTERM_AtExprNotAccess

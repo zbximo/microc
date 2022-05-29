@@ -327,7 +327,25 @@ let rec exec stmt (locEnv: locEnv) (gloEnv: gloEnv) (store: store) : store =
                 loop store4
             else store2
         loop store2
-
+    | Switch (e1,body) ->
+        let (v1,store1) = eval e1 locEnv gloEnv store
+        let rec loop list store1 = 
+            match list with
+            | [] -> store1
+            | Case(e2,body1) :: tail ->
+                let (v2,store2) = eval e2 locEnv gloEnv store1
+                if v1 = v2 then
+                    exec body1 locEnv gloEnv store2
+                else
+                    loop tail store2
+            | Default(body2) :: tail ->
+                let store2 = exec body2 locEnv gloEnv store1
+                loop tail store2
+            | _ -> failwith ("unknown switch stmt")
+                
+        loop body store1
+    | Case (e,body) -> exec body locEnv gloEnv store
+    | Default(body) -> exec body locEnv gloEnv store
 and stmtordec stmtordec locEnv gloEnv store =
     match stmtordec with
     | Stmt stmt -> (locEnv, exec stmt locEnv gloEnv store)

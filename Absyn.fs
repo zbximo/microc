@@ -48,7 +48,11 @@ and stmt =
   | For of expr * expr * expr * stmt  
   | ForRangeOne of access * expr * stmt
   | ForRangeTwo of access * expr * expr * stmt
+  | Switch of expr * stmt list
+  | Case of expr * stmt
+  | Default of stmt   
   // 语句块内部，可以是变量声明 或语句的列表                                                              
+
 
 and stmtordec =                                                    
   | Dec of typ * string              (* Local variable declaration  *)

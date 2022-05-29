@@ -30,6 +30,9 @@ let keyword s =
     | "for"     -> FOR
     | "in"      -> IN
     | "range"   -> RANGE
+    | "switch"  -> SWITCH
+    | "case"    -> CASE
+    | "default" -> DEFAULT
     | "Int"     -> INT
     | "Float"   -> FLOAT
     | "int"     -> failwith "首字母应该小写" 
