@@ -243,9 +243,11 @@ int execcode(int p[], int s[], int iargs[], int iargc, int /* boolean */ trace)
       s[sp - 1] = tmp;
     }
     break;
+    // 取栈顶元素 地址的值
     case LDI: // load indirect
       s[sp] = s[s[sp]];
       break;
+    // 栈顶元素前一个为地址，栈顶元素的值赋给地址
     case STI: // store indirect, keep value on top
       s[s[sp - 1]] = s[sp];
       s[sp - 1] = s[sp];

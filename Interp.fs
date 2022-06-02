@@ -341,8 +341,7 @@ let rec exec stmt (locEnv: locEnv) (gloEnv: gloEnv) (store: store) : store =
             | Default(body2) :: tail ->
                 let store2 = exec body2 locEnv gloEnv store1
                 loop tail store2
-            | _ -> failwith ("unknown switch stmt")
-                
+            | _ -> failwith ("unknown switch stmt") 
         loop body store1
     | Case (e,body) -> exec body locEnv gloEnv store
     | Default(body) -> exec body locEnv gloEnv store
@@ -378,6 +377,9 @@ and eval e locEnv gloEnv store : int * store =
             | "printc" ->
                 (printf "%c" (char i1)
                  i1)
+            | "printfloat" -> failwith ( string i1)
+
+            //     (printf "%f" (float32 i1))
             | _ -> failwith ("unknown primitive " + ope)
 
         (res, store1)
