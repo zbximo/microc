@@ -48,6 +48,7 @@ and stmt =
   | For of expr * expr * expr * stmt  
   | ForRangeOne of access * expr * stmt
   | ForRangeTwo of access * expr * expr * stmt
+  | ForRangeThree of access * expr * expr * expr * stmt
   | Switch of expr * stmt list
   | Case of expr * stmt
   | Default of stmt   

@@ -149,6 +149,8 @@ StmtM:  /* No unbalanced if-else */
   | FOR Access IN RANGE LPAR Expr RPAR StmtM { ForRangeOne($2,$6,$8) }
   //for i      in range  (    3    ,     5    )    *
   | FOR Access IN RANGE LPAR Expr COMMA Expr RPAR StmtM { ForRangeTwo($2,$6,$8,$10) }
+  //for i      in range  (    2    ,     7   ,      2   )    *
+  | FOR Access IN RANGE LPAR Expr COMMA Expr COMMA Expr RPAR StmtM {ForRangeThree ($2,$6,$8,$10,$12)}
   // switch (     i  )    {      case:..   }
   | SWITCH LPAR Expr RPAR LBRACE StmtS RBRACE { Switch($3,$6)  }
 ;

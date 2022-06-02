@@ -327,9 +327,26 @@ let rec exec stmt (locEnv: locEnv) (gloEnv: gloEnv) (store: store) : store =
                 loop store4
             else store2
         loop store2
+    | ForRangeThree (e1, e2, e3, e4, body) ->
+        let (start,store) = eval e2 locEnv gloEnv store
+        let (last,store) = eval e3 locEnv gloEnv store
+        let (step,store) = eval e4 locEnv gloEnv store
+        let (loc, store1) = access e1 locEnv gloEnv store
+
+        let store2 = setSto store1 loc start
+        let rec loop store2 = 
+            let i = getSto store2 loc
+            if i<last then
+                let store3 = exec body locEnv gloEnv store2
+                let store4 = setSto store3 loc (i+step)
+                loop store4
+            else store2
+        loop store2
+        
     | Switch (e1,body) ->
         let (v1,store1) = eval e1 locEnv gloEnv store
         let rec loop list store1 = 
+            // 遍历case
             match list with
             | [] -> store1
             | Case(e2,body1) :: tail ->
