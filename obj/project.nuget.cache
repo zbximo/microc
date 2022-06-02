@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "5m0us5LVOWKAIKsCRpv/vfGTY5snzMp7mLXtKuLDjgApn8X8+Tfqmxe+rYurw0gceKYSDuQ/q55YZLrjkutHtA==",
+  "dgSpecHash": "YvTUA1GPWcpI1Kc6WMvfp40sGkM4uDEV4YoqnThmOkyyM9ZdatVzPi/0sTv7y2Wk/FdTJOBNoLSsXhDOf2N7nA==",
   "success": true,
-  "projectFilePath": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\正式\\microc\\machine.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\work\\HomeWork\\2022.2-6\\编译原理\\大作业\\正式\\microc\\microc.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ximo\\.nuget\\packages\\fsharp.core\\6.0.2\\fsharp.core.6.0.2.nupkg.sha512",
+    "C:\\Users\\ximo\\.nuget\\packages\\fslexyacc\\10.2.0\\fslexyacc.10.2.0.nupkg.sha512",
+    "C:\\Users\\ximo\\.nuget\\packages\\fslexyacc.runtime\\10.2.0\\fslexyacc.runtime.10.2.0.nupkg.sha512"
+  ],
   "logs": []
 }
