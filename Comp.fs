@@ -190,13 +190,67 @@ let rec cStmt stmt (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
     | For (e1, e2, e3, body) ->
         let labbegin = newLabel ()
         let labtest = newLabel ()
-        cExpr e1 varEnv funEnv
+        cExpr e1 varEnv funEnv 
         @[ GOTO labtest; Label labbegin ]
         @ cStmt body varEnv funEnv 
           @ cExpr e3 varEnv funEnv
             @ [ Label labtest ]
               @ cExpr e2 varEnv funEnv @ [ IFNZRO labbegin ]
+    // for i range(3)
+    | ForRangeOne (acc, e1, body) ->
+        let labbegin = newLabel ()
+        let labtest = newLabel ()
+        // i = 0
+        let to0 = Assign (acc, CstI 0)
+        // i < 3
+        let compare = Prim2("<",Access acc,e1)
+        // i + 1
+        let plus = Assign (acc, Prim2("+",Access acc,CstI 1)) 
+        // 赋值 后 会多一个没用地址
+        cExpr to0 varEnv funEnv @[INCSP -1]
+        @[ GOTO labtest; Label labbegin ]
+        @ cStmt body varEnv funEnv 
+        // +1 赋值之后 栈中会多出 用于赋值的这个地址 所以需要缩栈
+          @ cExpr plus varEnv funEnv @[INCSP -1]
+            @ [ Label labtest ]
+              @ cExpr compare varEnv funEnv  @ [ IFNZRO labbegin]
 
+    // for i range(3)
+    | ForRangeTwo (acc, e1, e2, body) ->
+        let labbegin = newLabel ()
+        let labtest = newLabel ()
+        // i = e1
+        let to0 = Assign (acc, e1)
+        // i < 3
+        let compare = Prim2("<",Access acc,e2)
+        // i + 1
+        let plus = Assign (acc, Prim2("+",Access acc,CstI 1)) 
+        // 赋值 后 会多处来
+        cExpr to0 varEnv funEnv @[INCSP -1]
+        @[ GOTO labtest; Label labbegin ]
+        @ cStmt body varEnv funEnv 
+        // +1 赋值之后 栈中会多出 用于赋值的这个地址 所以需要缩栈
+          @ cExpr plus varEnv funEnv @[INCSP -1]
+            @ [ Label labtest ]
+              @ cExpr compare varEnv funEnv  @ [ IFNZRO labbegin]
+    // for i range(3)
+    | ForRangeThree (acc, e1, e2, e3, body) ->
+        let labbegin = newLabel ()
+        let labtest = newLabel ()
+        // i = e1
+        let to0 = Assign (acc, e1)
+        // i < 3
+        let compare = Prim2("<",Access acc,e2)
+        // i + 1
+        let plus = Assign (acc, Prim2("+",Access acc,e3)) 
+        // 赋值 后 会多处来
+        cExpr to0 varEnv funEnv @[INCSP -1]
+        @[ GOTO labtest; Label labbegin ]
+        @ cStmt body varEnv funEnv 
+        // +1 赋值之后 栈中会多出 用于赋值的这个地址 所以需要缩栈
+          @ cExpr plus varEnv funEnv @[INCSP -1]
+            @ [ Label labtest ]
+              @ cExpr compare varEnv funEnv  @ [ IFNZRO labbegin]
     | Expr e -> cExpr e varEnv funEnv @ [ INCSP -1 ]
     | Block stmts ->
 
@@ -309,7 +363,7 @@ and cExpr (e: expr) (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
         // 地址   2  ACE 8 DUP 9  LDI 9  SWAP 8 9  DUP 10 LDI 10 ADD 10 STI 2(10)  INCSP(-1) 去掉9留8
         // 值     5      2     2      5       5 2      2      5      6      6
         | "I++" -> cAccess acc varEnv funEnv @ [DUP] @ [LDI] @[SWAP] @ [DUP] @[LDI] @[CSTI 1] @[ADD] @ [STI] @ [ INCSP(-1) ]
-        | "I--" -> cAccess acc varEnv funEnv @ [DUP] @ [LDI] @[SWAP] @ [DUP]  @[LDI] @[CSTI 1] @[SUB] @ [STI] @ [ INCSP(-1) ]
+        | "I--" -> cAccess acc varEnv funEnv @ [DUP] @ [LDI] @[SWAP] @ [DUP]  @[LDI] @[CSTI 1] @[SUB] @ [STI] @ [ INCSP(-1) ]    
         | _ -> failwith("unknown primitive " + ope)
     | ComplexOperation(ope,acc,e) ->
         // x += 2        
