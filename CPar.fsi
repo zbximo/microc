@@ -53,6 +53,8 @@ type token =
   | SWITCH
   | CASE
   | DEFAULT
+  | DO
+  | UNTIL
   | CSTFLOAT of (float32)
   | CSTSTRING of (string)
   | NAME of (string)
@@ -111,6 +113,8 @@ type tokenId =
     | TOKEN_SWITCH
     | TOKEN_CASE
     | TOKEN_DEFAULT
+    | TOKEN_DO
+    | TOKEN_UNTIL
     | TOKEN_CSTFLOAT
     | TOKEN_CSTSTRING
     | TOKEN_NAME

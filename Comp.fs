@@ -186,6 +186,27 @@ let rec cStmt stmt (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
         @ cStmt body varEnv funEnv
           @ [ Label labtest ]
             @ cExpr e varEnv funEnv @ [ IFNZRO labbegin ]
+    
+    | DoWhile(body, e) -> 
+        let labbegin = newLabel ()
+        let labtest = newLabel ()
+        // 先执行一次DO 再进入循环
+        cStmt body varEnv funEnv
+        @[ GOTO labtest; Label labbegin ]
+        @ cStmt body varEnv funEnv
+          @ [ Label labtest ]
+            @ cExpr e varEnv funEnv @ [ IFNZRO labbegin ]
+
+    | DoUntil(body, e) -> 
+        let labbegin = newLabel ()
+        let labtest = newLabel ()
+        // 先执行一次DO 再进入循环
+        cStmt body varEnv funEnv
+        @[ GOTO labtest; Label labbegin ]
+        @ cStmt body varEnv funEnv
+          @ [ Label labtest ]
+            @ cExpr e varEnv funEnv @ [ IFZERO labbegin ]
+
     // for(i=0;i<5;i++)
     | For (e1, e2, e3, body) ->
         let labbegin = newLabel ()
@@ -251,6 +272,7 @@ let rec cStmt stmt (varEnv: VarEnv) (funEnv: FunEnv) : instr list =
           @ cExpr plus varEnv funEnv @[INCSP -1]
             @ [ Label labtest ]
               @ cExpr compare varEnv funEnv  @ [ IFNZRO labbegin]
+    
     | Expr e -> cExpr e varEnv funEnv @ [ INCSP -1 ]
     | Block stmts ->
 
